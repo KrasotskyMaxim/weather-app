@@ -1,0 +1,5 @@
+.venv/
+.ipython_checkpoints/
+templates/ui/
+*.ipynb
+__pycache__/
