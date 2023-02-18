@@ -1,8 +1,17 @@
 # XDG_SESSION_TYPE=x11
+# pyuic5 -x file.ui -o file.py
 import sys
 
 from PyQt5.QtWidgets import QApplication, QStackedWidget
+from PyQt5.QtCore import Qt, QTimer, QTime, QDate
 
+
+from exceptions import (
+    show_exception,
+    LoginException,
+    SignInException
+)
+from controller.controller import Controller
 from view import (
     ChooseEnterView, 
     HomeView,
@@ -27,6 +36,8 @@ class App(QApplication):
         self.profile_view = ProfileView()
         self.sign_in_view = SignInView()
         
+        self.controller = Controller(self)
+
         self.init_view()
         self.init_app()
 
@@ -55,9 +66,15 @@ class App(QApplication):
         self.home_view.ui.refresh_pushButton.clicked.connect(self.home_view.refresh)
         self.home_view.ui.search_pushButton.clicked.connect(self.home_view.search)
         self.home_view.ui.show_more_pushButton.clicked.connect(self.home_view.show_more)
+        self.home_view
         
         self.profile_view.ui.back_pushButton.clicked.connect(self.goto_home)
         self.profile_view.ui.save_pushButton.clicked.connect(self.profile_view.save)
+        
+        timer = QTimer(self)
+        timer.timeout.connect(self.update_time)
+        timer.start(1000)
+
         
     def switch_view(self, view):
         self.current_view = view
@@ -65,7 +82,7 @@ class App(QApplication):
         
     def goto_login(self):
         self.switch_view(self.login_view)
-        
+
     def goto_sign_in(self):
         self.switch_view(self.sign_in_view)
         
@@ -76,11 +93,34 @@ class App(QApplication):
         self.switch_view(self.home_view)
         
     def login(self):
-        self.switch_view(self.home_view)
-        
-    def sign_in(self):
-        self.switch_view(self.home_view)
+        try:
+            self.controller.login(
+                username=self.login_view.ui.username_lineEdit.text(),
+                password=self.login_view.ui.password_lineEdit.text(),
+                confirm_password=self.login_view.ui.confirm_password_lineEdit.text(),
+                city=self.login_view.ui.city_lineEdit.text(),
+            )
+            self.switch_view(self.home_view)
+        except LoginException as e:
+            show_exception("Login error", str(e))
 
+    def sign_in(self):
+        try:
+            self.controller.sign_in(
+                username=self.sign_in_view.ui.username_lineEdit.text(),
+                password=self.sign_in_view.ui.password_lineEdit.text(),
+            )
+            self.switch_view(self.home_view)
+        except SignInException as e:
+            show_exception("Sign-in error", str(e))
+            
+    def update_time(self):
+        current_time = QTime.currentTime().toString("hh:mm:ss")
+        current_date = QDate.currentDate().toString("ddd MMM d yyyy")
+        html = f"<p align='center'><span style='font-size: 11pt; font-family: Arial;'><b>{current_time}</b><br>{current_date}</span></p>"
+        self.home_view.ui.current_datetime_textBrowser.setHtml(html)
+
+        
 
 def application():
     app = App(sys.argv)

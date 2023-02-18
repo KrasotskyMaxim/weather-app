@@ -1,5 +1,8 @@
 .venv/
+.env
 .ipython_checkpoints/
 templates/ui/
 *.ipynb
 __pycache__/
+*.sqlite3
+TODO.txt

@@ -1,13 +1,20 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 KEY=os.getenv("KEY")
 DOMAIN=os.getenv("DOMAIN")
+DB_PATH=os.getenv("DB_PATH")
 
 DEFAULT_LANG="ru"
 DEFAULT_CITY="Minsk"
 DEFAULT_UNITS="metric"
 
 STATIC_PATH="images/"
+
+LOGIN_MODE = "login"
+SIGN_IN_MODE = "sign_in"
 
 CITY_GEO_URL = "{domain}/geo/1.0/direct?q={city}&limit={limit}&appid={key}"
 GEO_WEATHER_URL="{domain}/data/2.5/weather?lat={lat}&lon={lon}&units={units}&lang={lang}&appid={key}"

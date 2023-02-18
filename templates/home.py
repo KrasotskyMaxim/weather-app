@@ -26,7 +26,7 @@ class Ui_HomeForm(object):
         self.weather_icon_label = QtWidgets.QLabel(self.verticalLayoutWidget)
         self.weather_icon_label.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.weather_icon_label.setText("")
-        self.weather_icon_label.setPixmap(QtGui.QPixmap("../images/11n.png"))
+        self.weather_icon_label.setPixmap(QtGui.QPixmap("./images/11d.png"))
         self.weather_icon_label.setScaledContents(False)
         self.weather_icon_label.setAlignment(QtCore.Qt.AlignCenter)
         self.weather_icon_label.setObjectName("weather_icon_label")
@@ -41,7 +41,7 @@ class Ui_HomeForm(object):
         self.profile_pushButton.setGeometry(QtCore.QRect(500, 360, 89, 25))
         self.profile_pushButton.setObjectName("profile_pushButton")
         self.current_datetime_textBrowser = QtWidgets.QTextBrowser(HomeForm)
-        self.current_datetime_textBrowser.setGeometry(QtCore.QRect(480, 10, 111, 51))
+        self.current_datetime_textBrowser.setGeometry(QtCore.QRect(480, 10, 111, 65))
         self.current_datetime_textBrowser.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.current_datetime_textBrowser.setObjectName("current_datetime_textBrowser")
         self.current_datetime_label = QtWidgets.QLabel(HomeForm)
@@ -79,11 +79,6 @@ class Ui_HomeForm(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Humidity:</span> 93</p></body></html>"))
         self.refresh_pushButton.setText(_translate("HomeForm", "REFRESH"))
         self.profile_pushButton.setText(_translate("HomeForm", "PROFILE"))
-        self.current_datetime_textBrowser.setHtml(_translate("HomeForm", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">11:22<br />06/02/2023</span></p></body></html>"))
         self.current_datetime_label.setText(_translate("HomeForm", "<html><head/><body><p>CURRENT<br/>DATETIME:</p></body></html>"))
         self.search_pushButton.setText(_translate("HomeForm", "SEARCH"))
         self.show_more_pushButton.setText(_translate("HomeForm", "SHOW MORE"))

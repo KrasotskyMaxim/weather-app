@@ -38,12 +38,12 @@ class Ui_LoginForm(object):
         self.confirm_password_label = QtWidgets.QLabel(LoginForm)
         self.confirm_password_label.setGeometry(QtCore.QRect(140, 110, 91, 41))
         self.confirm_password_label.setObjectName("confirm_password_label")
-        self.city_name_label = QtWidgets.QLabel(LoginForm)
-        self.city_name_label.setGeometry(QtCore.QRect(140, 160, 81, 20))
-        self.city_name_label.setObjectName("city_name_label")
-        self.city_name_lineEdit = QtWidgets.QLineEdit(LoginForm)
-        self.city_name_lineEdit.setGeometry(QtCore.QRect(240, 160, 113, 25))
-        self.city_name_lineEdit.setObjectName("city_name_lineEdit")
+        self.city_label = QtWidgets.QLabel(LoginForm)
+        self.city_label.setGeometry(QtCore.QRect(140, 160, 81, 20))
+        self.city_label.setObjectName("city_label")
+        self.city_lineEdit = QtWidgets.QLineEdit(LoginForm)
+        self.city_lineEdit.setGeometry(QtCore.QRect(240, 160, 113, 25))
+        self.city_lineEdit.setObjectName("city_lineEdit")
 
         self.retranslateUi(LoginForm)
         QtCore.QMetaObject.connectSlotsByName(LoginForm)
@@ -55,7 +55,7 @@ class Ui_LoginForm(object):
         self.username_label.setText(_translate("LoginForm", "USERNAME:"))
         self.password_label.setText(_translate("LoginForm", "PASSWORD:"))
         self.confirm_password_label.setText(_translate("LoginForm", "<html><head/><body><p>CONFIRM<br/>PASSWORD:</p></body></html>"))
-        self.city_name_label.setText(_translate("LoginForm", "CITY NAME:"))
+        self.city_label.setText(_translate("LoginForm", "CITY:"))
 
 
 if __name__ == "__main__":

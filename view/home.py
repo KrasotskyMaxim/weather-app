@@ -13,7 +13,7 @@ class HomeView(QMainWindow):
                 
     def hide_interface(self):
         pass
-    
+
     def refresh(self):
         print("RESRESH")
         
