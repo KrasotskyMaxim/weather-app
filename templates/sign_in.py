@@ -11,6 +11,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_SignInForm(object):
+    def __init__(self, form) -> None:
+        self.setupUi(form)
+
     def setupUi(self, SignInForm):
         SignInForm.setObjectName("SignInForm")
         SignInForm.resize(600, 400)

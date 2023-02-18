@@ -11,6 +11,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_HomeForm(object):
+    def __init__(self, form) -> None:
+        self.setupUi(form)
+
     def setupUi(self, HomeForm):
         HomeForm.setObjectName("HomeForm")
         HomeForm.resize(600, 400)
@@ -34,9 +37,9 @@ class Ui_HomeForm(object):
         self.refresh_pushButton = QtWidgets.QPushButton(HomeForm)
         self.refresh_pushButton.setGeometry(QtCore.QRect(40, 360, 89, 25))
         self.refresh_pushButton.setObjectName("refresh_pushButton")
-        self.settings_pushButton = QtWidgets.QPushButton(HomeForm)
-        self.settings_pushButton.setGeometry(QtCore.QRect(500, 360, 89, 25))
-        self.settings_pushButton.setObjectName("settings_pushButton")
+        self.profile_pushButton = QtWidgets.QPushButton(HomeForm)
+        self.profile_pushButton.setGeometry(QtCore.QRect(500, 360, 89, 25))
+        self.profile_pushButton.setObjectName("profile_pushButton")
         self.current_datetime_textBrowser = QtWidgets.QTextBrowser(HomeForm)
         self.current_datetime_textBrowser.setGeometry(QtCore.QRect(480, 10, 111, 51))
         self.current_datetime_textBrowser.setLayoutDirection(QtCore.Qt.LeftToRight)
@@ -75,7 +78,7 @@ class Ui_HomeForm(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Sunset time: </span>23:00</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Humidity:</span> 93</p></body></html>"))
         self.refresh_pushButton.setText(_translate("HomeForm", "REFRESH"))
-        self.settings_pushButton.setText(_translate("HomeForm", "PROFILE"))
+        self.profile_pushButton.setText(_translate("HomeForm", "PROFILE"))
         self.current_datetime_textBrowser.setHtml(_translate("HomeForm", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

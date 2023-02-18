@@ -11,12 +11,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_LoginForm(object):
+    def __init__(self, form) -> None:
+        self.setupUi(form)
+
     def setupUi(self, LoginForm):
         LoginForm.setObjectName("LoginForm")
         LoginForm.resize(600, 400)
-        self.pushButton = QtWidgets.QPushButton(LoginForm)
-        self.pushButton.setGeometry(QtCore.QRect(250, 320, 89, 25))
-        self.pushButton.setObjectName("pushButton")
+        self.login_pushButton = QtWidgets.QPushButton(LoginForm)
+        self.login_pushButton.setGeometry(QtCore.QRect(250, 320, 89, 25))
+        self.login_pushButton.setObjectName("pushButton")
         self.username_lineEdit = QtWidgets.QLineEdit(LoginForm)
         self.username_lineEdit.setGeometry(QtCore.QRect(240, 40, 113, 25))
         self.username_lineEdit.setObjectName("username_lineEdit")
@@ -48,7 +51,7 @@ class Ui_LoginForm(object):
     def retranslateUi(self, LoginForm):
         _translate = QtCore.QCoreApplication.translate
         LoginForm.setWindowTitle(_translate("LoginForm", "Form"))
-        self.pushButton.setText(_translate("LoginForm", "LOGIN"))
+        self.login_pushButton.setText(_translate("LoginForm", "LOGIN"))
         self.username_label.setText(_translate("LoginForm", "USERNAME:"))
         self.password_label.setText(_translate("LoginForm", "PASSWORD:"))
         self.confirm_password_label.setText(_translate("LoginForm", "<html><head/><body><p>CONFIRM<br/>PASSWORD:</p></body></html>"))

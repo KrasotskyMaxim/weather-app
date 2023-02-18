@@ -11,6 +11,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_ProfileForm(object):
+    def __init__(self, form) -> None:
+        self.setupUi(form)
+
     def setupUi(self, ProfileForm):
         ProfileForm.setObjectName("ProfileForm")
         ProfileForm.resize(600, 400)
@@ -29,9 +32,9 @@ class Ui_ProfileForm(object):
         self.password_label = QtWidgets.QLabel(ProfileForm)
         self.password_label.setGeometry(QtCore.QRect(20, 80, 91, 20))
         self.password_label.setObjectName("password_label")
-        self.pushButton_3 = QtWidgets.QPushButton(ProfileForm)
-        self.pushButton_3.setGeometry(QtCore.QRect(10, 360, 101, 25))
-        self.pushButton_3.setObjectName("pushButton_3")
+        self.back_pushButton = QtWidgets.QPushButton(ProfileForm)
+        self.back_pushButton.setGeometry(QtCore.QRect(10, 360, 101, 25))
+        self.back_pushButton.setObjectName("back_pushButton")
         self.username_lineEdit = QtWidgets.QLineEdit(ProfileForm)
         self.username_lineEdit.setGeometry(QtCore.QRect(120, 50, 113, 25))
         self.username_lineEdit.setObjectName("username_lineEdit")
@@ -53,7 +56,7 @@ class Ui_ProfileForm(object):
         self.city_label.setText(_translate("ProfileForm", "<html><head/><body><p><span style=\" font-weight:600;\">CITY:</span></p></body></html>"))
         self.save_pushButton.setText(_translate("ProfileForm", "SAVE"))
         self.password_label.setText(_translate("ProfileForm", "<html><head/><body><p><span style=\" font-weight:600;\">PASSWORD:</span></p></body></html>"))
-        self.pushButton_3.setText(_translate("ProfileForm", "BACK"))
+        self.back_pushButton.setText(_translate("ProfileForm", "BACK"))
         self.username_lineEdit.setText(_translate("ProfileForm", "Test"))
         self.password_lineEdit.setText(_translate("ProfileForm", "12345"))
         self.city_lineEdit.setText(_translate("ProfileForm", "Minsk"))

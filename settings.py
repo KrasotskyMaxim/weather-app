@@ -1,5 +1,7 @@
-KEY="ea87f70fae265e4280dcb3516f1bce58"
-DOMAIN="http://api.openweathermap.org"
+import os
+
+KEY=os.getenv("KEY")
+DOMAIN=os.getenv("DOMAIN")
 
 DEFAULT_LANG="ru"
 DEFAULT_CITY="Minsk"

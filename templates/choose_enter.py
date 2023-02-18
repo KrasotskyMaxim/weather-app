@@ -11,6 +11,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_ChooseEnterForm(object):
+    def __init__(self, form) -> None:
+        self.setupUi(form)
+
     def setupUi(self, ChooseEnterForm):
         ChooseEnterForm.setObjectName("ChooseEnterForm")
         ChooseEnterForm.resize(600, 400)
