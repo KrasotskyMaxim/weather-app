@@ -4,5 +4,5 @@
 templates/ui/
 *.ipynb
 __pycache__/
-*.sqlite3
+db/
 TODO.txt

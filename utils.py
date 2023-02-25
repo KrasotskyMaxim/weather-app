@@ -3,8 +3,6 @@ import requests
 import settings
 
 
-def convert_time(timestamp: int) -> str:
-    return datetime.datetime.fromtimestamp(timestamp).strftime("%H:%M")
 
 
 def get_image_file(icon: str):

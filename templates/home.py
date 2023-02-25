@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
 
 class Ui_HomeForm(object):
@@ -24,9 +24,9 @@ class Ui_HomeForm(object):
         self.weather_verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.weather_verticalLayout.setObjectName("weather_verticalLayout")
         self.weather_icon_label = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.weather_icon_label.setStyleSheet("background-color: #65a5d5;")
         self.weather_icon_label.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.weather_icon_label.setText("")
-        self.weather_icon_label.setPixmap(QtGui.QPixmap("./images/11d.png"))
         self.weather_icon_label.setScaledContents(False)
         self.weather_icon_label.setAlignment(QtCore.Qt.AlignCenter)
         self.weather_icon_label.setObjectName("weather_icon_label")
@@ -63,20 +63,6 @@ class Ui_HomeForm(object):
     def retranslateUi(self, HomeForm):
         _translate = QtCore.QCoreApplication.translate
         HomeForm.setWindowTitle(_translate("HomeForm", "Form"))
-        self.weather_info_textBrowser.setHtml(_translate("HomeForm", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Minsk</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Weather:</span> Clouds <span style=\" font-style:italic;\">(overcast clouds)</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Temp:</span> -3 <span style=\" font-family:\'arial,sans-serif\'; font-size:16px; font-weight:600; color:#202124; background-color:#ffffff;\">°</span><span style=\" font-family:\'arial,sans-serif\'; font-size:16px; color:#202124; background-color:#ffffff;\">C</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'arial,sans-serif\'; font-size:16px; font-weight:600; color:#202124; background-color:#ffffff;\">Feels like:</span><span style=\" font-family:\'arial,sans-serif\'; font-size:16px; color:#202124; background-color:#ffffff;\"> -7 </span><span style=\" font-family:\'arial,sans-serif\'; font-size:16px; font-weight:600; color:#202124; background-color:#ffffff;\">°</span><span style=\" font-family:\'arial,sans-serif\'; font-size:16px; color:#202124; background-color:#ffffff;\">C</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Wind: </span>6m/s</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Sunrise time: </span>07:25</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Sunset time: </span>23:00</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Humidity:</span> 93</p></body></html>"))
         self.refresh_pushButton.setText(_translate("HomeForm", "REFRESH"))
         self.profile_pushButton.setText(_translate("HomeForm", "PROFILE"))
         self.current_datetime_label.setText(_translate("HomeForm", "<html><head/><body><p>CURRENT<br/>DATETIME:</p></body></html>"))

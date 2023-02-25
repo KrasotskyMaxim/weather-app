@@ -3,7 +3,6 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication, QStackedWidget
-from PyQt5.QtCore import Qt, QTimer, QTime, QDate
 
 
 from exceptions import (
@@ -28,16 +27,15 @@ class App(QApplication):
     
     def __init__(self, *args):
         super().__init__(list(args))
-        
-        self.widgets = QStackedWidget()
-        self.choose_enter_view = ChooseEnterView()
-        self.home_view = HomeView()
-        self.login_view = LoginView()
-        self.profile_view = ProfileView()
-        self.sign_in_view = SignInView()
-        
         self.controller = Controller(self)
 
+        self.widgets = QStackedWidget()
+        self.choose_enter_view = ChooseEnterView()
+        self.home_view = HomeView(self.controller)
+        self.login_view = LoginView()
+        self.profile_view = ProfileView(self.controller)
+        self.sign_in_view = SignInView()
+        
         self.init_view()
         self.init_app()
 
@@ -71,11 +69,6 @@ class App(QApplication):
         self.profile_view.ui.back_pushButton.clicked.connect(self.goto_home)
         self.profile_view.ui.save_pushButton.clicked.connect(self.profile_view.save)
         
-        timer = QTimer(self)
-        timer.timeout.connect(self.update_time)
-        timer.start(1000)
-
-        
     def switch_view(self, view):
         self.current_view = view
         self.widgets.setCurrentWidget(self.current_view)
@@ -87,6 +80,7 @@ class App(QApplication):
         self.switch_view(self.sign_in_view)
         
     def goto_profile(self):
+        self.controller.prepare_profile()
         self.switch_view(self.profile_view)
         
     def goto_home(self):
@@ -113,13 +107,6 @@ class App(QApplication):
             self.switch_view(self.home_view)
         except SignInException as e:
             show_exception("Sign-in error", str(e))
-            
-    def update_time(self):
-        current_time = QTime.currentTime().toString("hh:mm:ss")
-        current_date = QDate.currentDate().toString("ddd MMM d yyyy")
-        html = f"<p align='center'><span style='font-size: 11pt; font-family: Arial;'><b>{current_time}</b><br>{current_date}</span></p>"
-        self.home_view.ui.current_datetime_textBrowser.setHtml(html)
-
         
 
 def application():

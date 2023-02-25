@@ -10,6 +10,12 @@ class SignInException(Exception):
 class DBConnectionException(Exception):
     pass
 
+class UpdateProfileException(Exception):
+    pass
+
+class CityException(Exception):
+    pass
+
 def show_exception(title, message):
     error = QMessageBox()
     error.setWindowTitle(title)

@@ -6,12 +6,13 @@ load_dotenv()
 KEY=os.getenv("KEY")
 DOMAIN=os.getenv("DOMAIN")
 DB_PATH=os.getenv("DB_PATH")
+CITY_LIST_PATH=os.getenv("CITY_LIST_PATH")
 
-DEFAULT_LANG="ru"
+DEFAULT_LANG="en"
 DEFAULT_CITY="Minsk"
 DEFAULT_UNITS="metric"
 
-STATIC_PATH="images/"
+STATIC_PATH="./images/"
 
 LOGIN_MODE = "login"
 SIGN_IN_MODE = "sign_in"
