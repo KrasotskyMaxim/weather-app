@@ -17,6 +17,7 @@ from view import (
     LoginView,
     ProfileView,
     SignInView,
+    ShowMoreView,
 )
 
 
@@ -35,6 +36,7 @@ class App(QApplication):
         self.login_view = LoginView()
         self.profile_view = ProfileView(self.controller)
         self.sign_in_view = SignInView()
+        self.show_more_view = ShowMoreView()
         
         self.init_view()
         self.init_app()
@@ -46,6 +48,7 @@ class App(QApplication):
         self.widgets.addWidget(self.login_view)
         self.widgets.addWidget(self.profile_view)
         self.widgets.addWidget(self.sign_in_view)
+        self.widgets.addWidget(self.show_more_view)
         # set size
         self.widgets.setFixedWidth(600)
         self.widgets.setFixedHeight(400)
@@ -63,11 +66,12 @@ class App(QApplication):
         self.home_view.ui.profile_pushButton.clicked.connect(self.goto_profile)
         self.home_view.ui.refresh_pushButton.clicked.connect(self.home_view.refresh)
         self.home_view.ui.search_pushButton.clicked.connect(self.home_view.search)
-        self.home_view.ui.show_more_pushButton.clicked.connect(self.home_view.show_more)
-        self.home_view
+        self.home_view.ui.show_more_pushButton.clicked.connect(self.goto_show_more)
         
         self.profile_view.ui.back_pushButton.clicked.connect(self.goto_home)
         self.profile_view.ui.save_pushButton.clicked.connect(self.profile_view.save)
+        
+        self.show_more_view.ui.back_pushButton.clicked.connect(self.goto_home)
         
     def switch_view(self, view):
         self.current_view = view
@@ -85,6 +89,9 @@ class App(QApplication):
         
     def goto_home(self):
         self.switch_view(self.home_view)
+        
+    def goto_show_more(self):
+        self.switch_view(self.show_more_view)
         
     def login(self):
         try:

@@ -3,3 +3,4 @@ from view.home import HomeView
 from view.login import LoginView
 from view.profile import ProfileView
 from view.sign_in import SignInView
+from view.show_more import ShowMoreView

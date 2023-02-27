@@ -60,6 +60,3 @@ class HomeView(QMainWindow):
             self.ui.search_lineEdit.clear()
         except CityException as e:
             show_exception("City error", str(e))
-        
-    def show_more(self):
-        print("SHOW MORE")
