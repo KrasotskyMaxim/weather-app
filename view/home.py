@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QCompleter
 from PyQt5.QtCore import QTimer, QTime, QDate
 from PyQt5 import QtGui
 
@@ -12,9 +12,10 @@ class HomeView(QMainWindow):
     
     datetime_html = "<p align='center'><span style='font-size: 11pt; font-family: Arial;'><b>{current_time}</b><br>{current_date}</span></p>"
     weather_html = "<p align='center'><strong>{city}</strong></p><p><strong>Weather:</strong> {main} <em>({description})</em><br><strong>Temp:</strong> {temp}°C<br><strong>Feels like:</strong> {feels_like}°C</p><strong>Wind:</strong> {wind_speed}m/s<br><strong>Sunrise time:</strong> {sunrise_time}<br><strong>Sunset time:</strong> {sunset_time}<br><strong>Humidity:</strong> {humidity}% </p><br><p align='center'><em>actual on: {current_time}</em></p>"
-    
+
     def __init__(self, controller):
         super(HomeView, self).__init__()
+        # self.current_city = 
         self.ui = Ui_HomeForm(self)
         self.controller = controller
         self.init_UI()
@@ -23,6 +24,10 @@ class HomeView(QMainWindow):
         timer = QTimer(self)
         timer.timeout.connect(self.update_time)
         timer.start(1000)
+
+        cities = self.controller.get_cities()
+        completer = QCompleter(cities)
+        self.ui.search_lineEdit.setCompleter(completer)
 
         self.hide_interface()
                 

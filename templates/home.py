@@ -11,18 +11,21 @@ from PyQt5 import QtCore, QtWidgets
 
 
 class Ui_HomeForm(object):
-    def __init__(self, form) -> None:
+    def __init__(self, form=None) -> None:
         self.setupUi(form)
 
     def setupUi(self, HomeForm):
         HomeForm.setObjectName("HomeForm")
         HomeForm.resize(600, 400)
+        
         self.verticalLayoutWidget = QtWidgets.QWidget(HomeForm)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 151, 341))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        
         self.weather_verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.weather_verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.weather_verticalLayout.setObjectName("weather_verticalLayout")
+        
         self.weather_icon_label = QtWidgets.QLabel(self.verticalLayoutWidget)
         self.weather_icon_label.setStyleSheet("background-color: #65a5d5;")
         self.weather_icon_label.setLayoutDirection(QtCore.Qt.LeftToRight)
@@ -31,9 +34,11 @@ class Ui_HomeForm(object):
         self.weather_icon_label.setAlignment(QtCore.Qt.AlignCenter)
         self.weather_icon_label.setObjectName("weather_icon_label")
         self.weather_verticalLayout.addWidget(self.weather_icon_label)
+        
         self.weather_info_textBrowser = QtWidgets.QTextBrowser(self.verticalLayoutWidget)
         self.weather_info_textBrowser.setObjectName("weather_info_textBrowser")
         self.weather_verticalLayout.addWidget(self.weather_info_textBrowser)
+        
         self.refresh_pushButton = QtWidgets.QPushButton(HomeForm)
         self.refresh_pushButton.setGeometry(QtCore.QRect(40, 360, 89, 25))
         self.refresh_pushButton.setObjectName("refresh_pushButton")

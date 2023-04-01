@@ -16,13 +16,16 @@ class Model:
         self.view = view
         self.db = Database(settings.DB_PATH, settings.CITY_LIST_PATH)
         self.api = Api()
-    
+
     def check_empty_fields(self, mode, *args):
         for field in args:
             if not field:
                 if mode == settings.LOGIN_MODE:
                     raise LoginException("All fields must be filled.")
-            
+    
+    def get_city_list(self) -> list[str]:
+        return self.db.city_list        
+    
     def check_confirm_password(self, mode, password, confirm_password):
         if password != confirm_password:
             if mode == settings.LOGIN_MODE:
@@ -74,3 +77,8 @@ class Model:
     def check_exists_city(self, city):
         if not self.db.get_city(city):
             raise CityException("City not found.")
+
+    def set_forecast_weather(self):
+        forecast_info = self.api.get_weather_forecast(self.current_city)
+        forecasts = [WeatherData(**f) for f in forecast_info]
+        self.view.show_more_view.set_forecast(forecasts)

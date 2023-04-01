@@ -37,7 +37,7 @@ class App(QApplication):
         self.profile_view = ProfileView(self.controller)
         self.sign_in_view = SignInView()
         self.show_more_view = ShowMoreView()
-        
+
         self.init_view()
         self.init_app()
 
@@ -91,6 +91,7 @@ class App(QApplication):
         self.switch_view(self.home_view)
         
     def goto_show_more(self):
+        self.controller.prepare_show_more()
         self.switch_view(self.show_more_view)
         
     def login(self):

@@ -21,6 +21,8 @@ class Controller:
             raise
 
         self.model.save_user(username, password, city)
+        self.model.init_user(username, password)
+        self.model.set_profile_weather()
         
     def sign_in(self, username, password):
         try:
@@ -47,3 +49,9 @@ class Controller:
             self.model.set_profile_weather(city)
         except CityException as e:
             raise e
+        
+    def prepare_show_more(self):
+        self.model.set_forecast_weather()
+        
+    def get_cities(self) -> list[str]:
+        return self.model.get_city_list()
